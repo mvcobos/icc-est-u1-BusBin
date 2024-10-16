@@ -26,6 +26,7 @@ public class App {
         for(int j = 0; j < cantidadPersonas; j++){
             System.out.print(edades[j] + "|");
         }
+        System.out.println();
 
         int edadBuscar = persona.leerEnteroValido(scanner, "ingrese la edad a buscar: ", false);
         int[] arregloOrdenadoPersona = metodo.sortByEdad(edades);
