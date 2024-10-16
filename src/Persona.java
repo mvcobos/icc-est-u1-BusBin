@@ -24,7 +24,7 @@ public class Persona {
 
     }
 
-    public 
+
 
     public int leerEnteroValido(Scanner scanner, String mensaje, boolean permitirNegativo){
         int numero;
@@ -40,19 +40,15 @@ public class Persona {
                 System.out.println("Debe ser entero mayor a 0");
             }
         }while(!permitirNegativo && numero <= 0);
+
         return numero;
     }
 
-    public String toString(String nombre, int edad){
-        return "Nombre:" + nombre + " Edad:" + edad;
+
+    public String toString(int[] edad){
+        return " Edad:" + edad;
     }
 
-    public void printArreglo(String[] arreglo){
-        System.out.println("El arreglo de personas es: ");
-        for(String elemento : arreglo){           //for each 
-            System.out.print(elemento + "  ");     // Imprimir arreglo ingresado
-        }
-        System.out.println();
-    }
+
     
 }

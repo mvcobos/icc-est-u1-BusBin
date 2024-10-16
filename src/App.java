@@ -3,31 +3,34 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in); 
         Persona persona = new Persona();
+        Metodo metodo = new Metodo();
+
 
         int cantidadPersonas = persona.leerEnteroValido(scanner, "Ingrese la cantidad de personas: ", false);
-        Persona[] personas = new Persona[cantidadPersonas]; //Persona[] hace que los objetos ingresados sean del tipo Persona
+        Persona[] personasArreglo = new Persona[cantidadPersonas]; //Persona[] hace que los objetos ingresados sean del tipo Persona
         scanner.nextLine();
-
-        personas[0] = new Persona("Juan", 20);
         
+        int[] edades = new int [cantidadPersonas];
+
         //PEDIR DATOS DE LA PERSONA
-        for(int i = 0; i < personas.length; i++){
+        for(int i = 0; i < personasArreglo.length; i++){
             System.out.println("Ingrese persona:");
             System.out.print("Nombre: ");
             String nombre = scanner.nextLine();
             int edad = persona.leerEnteroValido(scanner, "Edad:", false);
+            edades[i] = edad;
             scanner.nextLine();
-            personas[i] = new Persona(nombre, edad);
+            personasArreglo[i] = new Persona(nombre, edad);
         }
 
-        for(int j = 0; j < personas.length; j++){
-            System.out.print(persona.getEdad() + "|");
+        for(int j = 0; j < cantidadPersonas; j++){
+            System.out.print(edades[j] + "|");
         }
 
+        int edadBuscar = persona.leerEnteroValido(scanner, "ingrese la edad a buscar: ", false);
+        int[] arregloOrdenadoPersona = metodo.sortByEdad(edades);
+        metodo.findByEdad(arregloOrdenadoPersona, edadBuscar);
 
-
-
-       
-       scanner.close();
+        
     }
 }
